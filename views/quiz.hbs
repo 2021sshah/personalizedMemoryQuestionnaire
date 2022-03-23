@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color:rgb(194, 230, 147)">
+        <a href="/quiz">Reload</a>
+        <br/>
+        <h1>Your Memory Retention Questionaire</h1>
+        <ol>
+        {{#each rQuesLst}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ol>
+        <br/><br/>
+        <h3>Scroll down to check your answers!</h3>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <h1>Check Your Answers Here</h1>
+        <ol>
+        {{#each rAnsLst}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ol>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
+        <a href="/quiz">Reload</a>
+        <br/>
+        <a href="/all">View Full Question Bank</a>
+        <br/>
+        <a href="/home">Home</a>
+    </body>
+</html>

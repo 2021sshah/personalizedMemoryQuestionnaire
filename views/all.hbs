@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color:rgb(194, 230, 147)">
+        <h1>Full Question Bank</h1>
+        <ol>
+        {{#each quesLst}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ol>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <h1>Answer Key to Questions</h1>
+        <ol>
+        {{#each ansLst}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ol>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <a href="/quiz">View Randomized Quiz</a>
+        <br/>
+        <a href="/all">Reload</a>
+        <br/>
+        <a href="/home">Home</a>
+    </body>
+</html>
