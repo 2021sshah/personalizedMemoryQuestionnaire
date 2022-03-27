@@ -9,6 +9,7 @@
   "author": "Siddharth Shah",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.2",
     "hbs": "^4.2.0"

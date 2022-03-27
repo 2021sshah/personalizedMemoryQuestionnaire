@@ -5,6 +5,10 @@ const express = require('express')
 const app = express();
 const port = 3000;
 
+// Deal with CORS
+const cors = require('cors');
+app.use(cors());
+
 // Handlebars
 const hbs = require('hbs');
 app.set('view engine', 'hbs');
@@ -109,6 +113,50 @@ app.get('/quiz',(req,res) => {
     obj.rQuesLst = rQues
     obj.rAnsLst = rAns
     res.render('quiz', obj)
+});
+
+app.get('/random',(req,res) => {
+        // Arrays holding displayed Q-and-A
+        rQues = []
+        rAns = []
+        // Random General Questions
+        rGenIdx = [];
+        while(rGenIdx.length < genTar) {
+            idx = Math.floor(Math.random() * numGen);
+            if(!rGenIdx.includes(idx)) {
+                rGenIdx.push(idx)
+                rQues.push( ques[idx] )
+                rAns.push( ans[idx] )
+            }
+        }
+        // Random Personal Questions
+        rPerIdx = [];
+        while(rPerIdx.length < perTar) {
+                    // translate up by numGen
+            idx = Math.floor(Math.random() * numPer) + numGen;
+            if(!rPerIdx.includes(idx)) {
+                rPerIdx.push(idx)
+                rQues.push( ques[idx] )
+                rAns.push( ans[idx] )
+            }
+        }
+        // Random Relations Questions
+        rRelIdx = [];
+        while(rRelIdx.length < relTar) {
+                    // translate up by (numGen + numPer)
+            idx = Math.floor(Math.random() * numRel) + (numGen + numPer);
+            if(!rRelIdx.includes(idx)) {
+                rRelIdx.push(idx)
+                rQues.push( ques[idx] )
+                rAns.push( ans[idx] )
+            }
+        }
+        // Assign and render
+        var obj = [];
+        for(let i=0; i < rQues.length; i++) {
+            obj.push( [rQues[i], rAns[i]] );
+        }
+        res.json(obj);
 });
 
 // Initialize Listener
